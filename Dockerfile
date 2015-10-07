@@ -1,5 +1,5 @@
 FROM debian:jessie
-MAINTAINER Jon Malmaud
+MAINTAINER Jon Malmaud (malmaud@gmail.com)
 WORKDIR /
 RUN apt-get update && apt-get install -y \
     gcc \
@@ -11,12 +11,14 @@ RUN apt-get update && apt-get install -y \
     wget \
     cmake \
     libssl-dev \
-    python2.7
+    python2.7 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 EXPOSE 8000
 VOLUME /data
 RUN git clone https://github.com/JuliaLang/julia.git
 WORKDIR /julia
-ADD https://malmaud.github.io/files/Make.user /julia/Make.user
+RUN git checkout 930e6b55327c6caf60d0eae4d71ffdf43e55fbae
+ADD Make.user Make.user
 RUN make
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ENTRYPOINT ["/julia/julia"]

@@ -1,0 +1,7 @@
+override LLDB_VER=master
+override LLVM_VER=svn
+override LLVM_ASSERTIONS=1
+override BUILD_LLVM_CLANG=1
+override BUILD_LLDB=1
+override USE_LLVM_SHLIB=1
+override LLDB_DISABLE_PYTHON=1
