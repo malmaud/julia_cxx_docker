@@ -20,5 +20,5 @@ RUN git clone https://github.com/JuliaLang/julia.git
 WORKDIR /julia
 RUN git checkout 930e6b55327c6caf60d0eae4d71ffdf43e55fbae
 ADD Make.user Make.user
-RUN make
+RUN make -j4
 ENTRYPOINT ["/julia/julia"]
