@@ -11,9 +11,9 @@ RUN apt-get update && apt-get install -y \
     wget \
     cmake \
     libssl-dev \
-    python2.7 && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    python2.7 \
+    ncurses-dev \
+    libedit-dev
 EXPOSE 8000
 VOLUME /data
 RUN git clone https://github.com/JuliaLang/julia.git
