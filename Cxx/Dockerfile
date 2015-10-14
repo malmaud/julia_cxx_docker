@@ -1,8 +1,8 @@
 FROM debian:jessie
 MAINTAINER Jon Malmaud (malmaud@gmail.com)
-WORKDIR /
 RUN apt-get update && apt-get install -y \
-    clang-3.5 \
+    gcc-4.9 \
+    g++-4.9 \
     gfortran \
     git \
     perl \
@@ -12,17 +12,15 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     python2.7 \
     libncurses5-dev \
-    libedit-dev
-EXPOSE 8000
-VOLUME /data
-WORKDIR /usr/bin
-RUN rm -rf gcc g++
-RUN ln -s clang-3.5 gcc
-RUN ln -s clang-3.5 g++
+    libedit-dev \
+    swig
 WORKDIR /
-RUN git clone https://github.com/JuliaLang/julia.git
-WORKDIR /julia
-RUN git checkout 930e6b55327c6caf60d0eae4d71ffdf43e55fbae
+RUN git clone https://github.com/JuliaLang/julia.git julia_src
+WORKDIR /usr/bin
+RUN rm -f gcc g++
+RUN ln -s g++-4.9 g++
+RUN ln -s gcc-4.9 gcc
+WORKDIR /julia_src
 ADD Make.user Make.user
-RUN make 
+RUN make install prefix=/julia
 ENTRYPOINT ["/julia/julia"]
