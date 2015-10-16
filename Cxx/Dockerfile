@@ -25,7 +25,7 @@ ln -s g++-4.9 g++ && \
 ln -s gcc-4.9 gcc && \
 cd /julia && \
 cp /mods/Make.user Make.user && \
-patch -p1 < deps_Makefile.patch && \
+
 make  -j4 && \
 #julia -e 'Pkg.clone("https://github.com/Keno/Cxx.jl"); Pkg.build("Cxx"); using Cxx' && \
 rm -rf /mods && \
