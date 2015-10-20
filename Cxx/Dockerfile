@@ -26,7 +26,7 @@ ln -s gcc-4.9 gcc && \
 cd /julia && \
 cp /mods/Make.user Make.user && \
 
-make  -j4 && \
+make install  prefix=/julia_build && \
 #julia -e 'Pkg.clone("https://github.com/Keno/Cxx.jl"); Pkg.build("Cxx"); using Cxx' && \
 rm -rf /mods && \
 apt-get purge -y --auto-remove gfortran python2.7 bzip2 perl m4 && \
