@@ -1,4 +1,4 @@
-FROM julia:0.4
+FROM debian:jessie
 MAINTAINER Jon Malmaud (malmaud@gmail.com)
 VOLUME /data
 CMD julia
