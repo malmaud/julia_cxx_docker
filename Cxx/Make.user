@@ -2,6 +2,13 @@ override LLDB_VER=master
 override LLVM_VER=svn
 override LLVM_ASSERTIONS=1
 override BUILD_LLVM_CLANG=1
-override BUILD_LLDB=1
+#override BUILD_LLDB=1
 override USE_LLVM_SHLIB=1
-override LLDB_DISABLE_PYTHON=1
+#override LLDB_DISABLE_PYTHON=1
+
+override LLVM_GIT_URL_LLVM=https://github.com/JuliaLang/llvm.git
+#override LLVM_GIT_URL_LLDB=https://github.com/JuliaLang/lldb.git
+override LLVM_GIT_URL_CLANG=https://github.com/JuliaLang/clang.git
+override LLVM_GIT_VER=kf/gallium
+#override LLVM_GIT_VER_LLDB=kf/gallium
+override LLVM_GIT_VER_CLANG=kf/gallium

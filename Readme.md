@@ -1,6 +1,8 @@
 Julia  docker tools
 ==========
 
+Pre-built images available on [Docker hub](https://hub.docker.com/r/malmaud/julia/).
+
 julia_docker
 ----
 Command-line tool that seamlessly causes the Julia 0.4 docker image to behave
